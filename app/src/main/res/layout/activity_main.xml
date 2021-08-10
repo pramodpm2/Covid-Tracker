@@ -18,17 +18,18 @@
         android:orientation="vertical">
 
         <!--Text view to display Global stats-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Global Stats"
-            android:textColor="#050505"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textSize="35sp"
-            android:textStyle="bold"/>
 
         <!--Text view to display Total Cases-->
+        <TextView
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            android:text="Global Stats"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#050505"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -212,6 +213,12 @@
             android:textColor="@color/color_one"
             android:textStyle="bold"
             android:fontFamily="sans-serif-light" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Vaccination Details" />
 
     </LinearLayout>
 

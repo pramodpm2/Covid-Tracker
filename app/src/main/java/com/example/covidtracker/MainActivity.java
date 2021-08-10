@@ -2,7 +2,10 @@ package com.example.covidtracker;//package com.example.covid_19tracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
             tvTodayCases, tvTotalDeaths,
             tvTodayDeaths,
             tvAffectedCountries;
+    Button nextPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         tvAffectedCountries
                 = findViewById(R.id.tvAffectedCountries);
 
+        nextPage=findViewById(R.id.next);
 
         fetchdata();
     }
@@ -74,16 +79,11 @@ public class MainActivity extends AppCompatActivity {
                         // handle it inside try and catch
                         try {
 
-                            // Creating object of JSONObject
+
                             JSONObject jsonObject
                                     = new JSONObject(
                                     response.toString());
 
-                            // Set the data in text view
-                            // which are available in JSON format
-                            // Note that the parameter inside
-                            // the getString() must match
-                            // with the name given in JSON format
                             System.out.println(jsonObject);
                             tvCases.setText(
                                     jsonObject.getString(
@@ -109,6 +109,14 @@ public class MainActivity extends AppCompatActivity {
                             tvAffectedCountries.setText(
                                     jsonObject.getString(
                                             "affectedCountries"));
+                            nextPage.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                    Intent i = new Intent(MainActivity.this,NextPage.class);
+                                    startActivity(i);
+                                }
+                            });
                         }
                         catch (JSONException e) {
                             e.printStackTrace();
